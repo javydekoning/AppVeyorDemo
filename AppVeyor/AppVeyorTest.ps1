@@ -16,6 +16,8 @@ Write-Host 'Uploading results'
 #---------------------------------# 
 # Validate                        # 
 #---------------------------------# 
-if ($res.FailedCount -gt 0) { 
+if (($res.FailedCount -gt 0) -or ($res.PassedCount -eq 0)) { 
     throw "$($res.FailedCount) tests failed."
+} else {
+  Write-Host 'All tests passed' -ForegroundColor Green
 }
