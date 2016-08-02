@@ -4,6 +4,13 @@
 Write-Host 'Running AppVeyor install script' -ForegroundColor Yellow
 
 #---------------------------------# 
+# Install NuGet                   # 
+#---------------------------------# 
+Write-Host 'Installing NuGet PackageProvide'
+$pkg = Install-PackageProvider -Name NuGet -Force
+Write-Host "Installed NuGet version '$($pkg.version)'" 
+
+#---------------------------------# 
 # Install Pester                  # 
 #---------------------------------# 
 Write-Host 'Installing Pester'
